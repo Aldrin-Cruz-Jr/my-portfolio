@@ -1,69 +1,47 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import rgmImage from "../assets/RGM.png";
+import safetyCribImage from "../assets/SafetyCrib.png";
+import beruImage from "../assets/beru2.png";
+import profileImage from "../assets/profile_pic3.png";
+import guanzonImageTwo from "../assets/guanzon2.jpg";
+import learnlyImage from "../assets/Learnly.jpg";
+import fungasinanImage from "../assets/FUNgasinan.jpg";
+import miraImage from "../assets/MIRA.jpg";
+import lifelineImage from "../assets/lifeline.jpg";
+
+const featuredProjects: Array<{
+  number: string; name: string; eyebrow: string; description: string; detail: string; image: StaticImageData;
+}> = [
+  { number: "01", name: "RGM Furniture", eyebrow: "Full-stack e-commerce", description: "A business-focused commerce platform built for a local furniture company—from product discovery and cart state to secure checkout.", detail: "React · Redux · MongoDB · Stripe", image: rgmImage },
+  { number: "02", name: "SafetyCrib", eyebrow: "Thesis project · Computer vision", description: "An infant emesis-detection workflow that connects dataset development and YOLO model training with a React Native mobile experience.", detail: "React Native · Python · YOLO · Computer Vision", image: safetyCribImage },
+  { number: "03", name: "Beru", eyebrow: "Founder & Developer · In progress", description: "An interactive, mental-health-focused web product exploring connection, self-expression, and immersive digital spaces.", detail: "Next.js · React · Three.js · WebSockets", image: beruImage },
+];
+
+const experiences = [
+  { role: "Software Developer", company: "Guanzon Group of Companies", period: "Jun 2025 — Aug 2025", description: "Contributed business logic for inter-branch stock requests in an inventory management system. Worked within layered enterprise architecture, collaborated through Git, and supported requirements documentation, meetings, and demos.", tools: ["Java", "JavaFX", "MySQL", "OOP", "Git"], images: [guanzonImageTwo] },
+  { role: "Full-Stack Developer", company: "RGM Furniture", period: "Dec 2025 — Apr 2026", description: "Built an end-to-end e-commerce website intended for real business use and lead conversion, including browsing, cart, ordering, payments, backend, and database functionality.", tools: ["JavaScript", "React", "Redux", "MongoDB", "Stripe"], images: [rgmImage] },
+];
+
+const selectedWork = [
+  { name: "Learnly", context: "DLSU SikapTala · Mar 2025", role: "Team Leader / Csyntax Director", description: "A gamified mobile learning concept built around a simple proposition: teach people how to learn. Led team delivery while shaping the product solution and interface.", image: learnlyImage },
+  { name: "Lifeline", context: "Competition project · Nov 2025", role: "Team Leader", description: "An emergency-focused mobile application concept designed to remain useful when internet connectivity is unavailable.", badge: "Advanced to Regionals", image: lifelineImage },
+  { name: "Fungasinan", context: "Mobile application concept", role: "UI/UX / Product Designer", description: "Developed the interface for a Pangasinan culture app proposed for a government initiative, working with a stakeholder from another academic discipline.", image: fungasinanImage },
+  { name: "MIRA", context: "Go Healthy with Taiwan 2026 · Smart Healthcare", role: "Early-stage product concept", description: "A non-clinical smart-healthcare concept using 3D depth sensing and longitudinal data to support between-visit change monitoring for people with CKD.", badge: "Concept stage", image: miraImage },
+];
+
+function ArrowUpRight() { return <span aria-hidden="true">↗</span>; }
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+  return <div className="portfolio-sheet">
+    <header className="site-header"><a className="wordmark" href="#top" aria-label="Aldrin, home">A<span>.</span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a></nav><a className="header-contact" href="#contact">Let&apos;s talk <ArrowUpRight /></a></header>
+    <main id="top">
+      <section className="hero section-shell"><p className="availability"><span className="status-dot" /> Available for opportunities</p><h1 className="hero-name"><span>Aldrin</span> <strong>Cruz Jr.</strong></h1><div className="hero-profile"><Image src={profileImage} alt="Aldrin Cruz Jr." priority fill sizes="(max-width: 760px) 78vw, 36vw" /></div><div className="hero-intro"><h2>Software developer</h2><p>I build software around real problems—from business systems and e-commerce to computer vision and products of my own.</p><a className="button button-primary" href="#work">View selected work <ArrowUpRight /></a></div><div className="hero-socials"><a href="https://github.com/Aldrin-Cruz-Jr" target="_blank" rel="noreferrer">GitHub <ArrowUpRight /></a><a href="www.linkedin.com/in/aldrin-jr-cruz-68a557349" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a><a href="#contact">Email <ArrowUpRight /></a></div></section>
+      <section className="section-shell projects-section" id="work"><div className="section-heading"><div><p className="eyebrow">Selected work</p><h2>Projects with purpose, built end to end.</h2></div><p>From business needs to working product experiences.</p></div><div className="project-list">{featuredProjects.map((project) => <article className="featured-project" key={project.name}><div className="project-art"><Image src={project.image} alt={`${project.name} project preview`} fill sizes="(max-width: 760px) 100vw, 55vw" /></div><div className="project-copy"><div className="project-meta"><span>{project.number}</span><span>{project.eyebrow}</span></div><h3>{project.name}</h3><p>{project.description}</p><div className="project-bottom"><span className="tech-line">{project.detail}</span><a className="project-link" href="#contact" aria-label={`Discuss ${project.name}`}>Explore <ArrowUpRight /></a></div></div></article>)}</div></section>
+      <section className="experience-section" id="experience"><div className="section-shell"><div className="section-heading"><div><p className="eyebrow">Professional experience</p><h2>Learning how software creates value in practice.</h2></div><p>Enterprise systems, business outcomes, and collaborative delivery.</p></div><div className="experience-list">{experiences.map((experience) => <article className="experience-item" key={experience.company}><div className="experience-period">{experience.period}</div><div className="experience-main"><h3>{experience.role}</h3><p className="company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tools.map((tool) => <span key={tool}>{tool}</span>)}</div></div><div className={`experience-art experience-art-${experience.images.length}`}>{experience.images.map((image, index) => <div key={index}><Image src={image} alt={`${experience.company} work sample ${index + 1}`} fill sizes="(max-width: 760px) 100vw, 24vw" /></div>)}</div></article>)}</div></div></section>
+      <section className="section-shell selected-section"><div className="section-heading"><div><p className="eyebrow">Beyond the brief</p><h2>Leadership, collaboration, and ideas in motion.</h2></div><p>Selected product work and competition projects.</p></div><div className="work-grid">{selectedWork.map((work) => <article className="work-card" key={work.name}><div className="work-image"><Image src={work.image} alt={`${work.name} project preview`} fill sizes="(max-width: 760px) 100vw, 45vw" /></div><div className="work-card-content"><div className="work-card-top"><p>{work.context}</p>{work.badge && <span className="achievement">{work.badge}</span>}</div><h3>{work.name}</h3><p className="work-role">{work.role}</p><p className="work-description">{work.description}</p></div></article>)}</div></section>
+      <section className="skills-section"><div className="section-shell skills-layout"><div><p className="eyebrow">Capabilities</p><h2>Broad enough to shape the product. Focused enough to ship it well.</h2></div><div className="capabilities"><div><span>01</span><h3>Frontend &amp; interaction</h3><p>React, Next.js, JavaScript, TypeScript, Redux, Three.js</p></div><div><span>02</span><h3>Full-stack &amp; delivery</h3><p>Node.js, MongoDB, MySQL, Stripe, Git, clean architecture</p></div><div><span>03</span><h3>Applied technology</h3><p>React Native, Python, YOLO, computer vision, real-time systems</p></div><div><span>04</span><h3>Product &amp; leadership</h3><p>Requirements, stakeholder collaboration, team leadership, product direction</p></div></div></div></section>
+      <section className="section-shell about-section" id="about"><div className="about-label"><p className="eyebrow">A little more context</p><span>Based in the Philippines</span></div><div className="about-copy"><h2>I care about the work behind the interface.</h2> <p> Most of what I build comes from problems I genuinely want to solve—from SafetyCrib, my infant vomit detection thesis project, to products I&apos;ve started on my own. I enjoy working across the stack when I need to, but I&apos;m especially drawn to the part where technology becomes an experience people can interact with. </p> <p> I&apos;m still learning, still experimenting, and still figuring out what I want to build next. For me, that&apos;s part of the fun. </p></div></section>
+      <section className="contact-section" id="contact"><div className="section-shell contact-inner"><p className="eyebrow">Get in touch</p><h2>Have a product, opportunity, or problem worth solving?</h2><a className="contact-email" href="mailto:@arenren226@gmail.com">@arenren226@gmail.com <ArrowUpRight /></a><p className="contact-note">Replace this placeholder email with your preferred contact address before publishing.</p></div></section>
+    </main><footer className="site-footer section-shell"><span>© 2026 Aldrin Cruz Jr.</span><div><a href="#top">Back to top ↑</a><a href="https://github.com" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></footer>
+  </div>;
 }
